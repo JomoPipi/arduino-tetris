@@ -208,10 +208,28 @@ void tetris() {
 
 void gameOver() {
   tft.clearScreen();
-  tft.setCursor(40, 10);
+  tft.setCursor(40, 20);
   tft.setTextColor(RED);
-  tft.println("GAME OVER!");
+  tft.print("GAME OVER! ");
+  tft.setTextColor(WHITE);
+  tft.setCursor(10, 40);
+  tft.print("Final Score: ");
+  tft.setTextColor(CYAN);
+  tft.println(game.score);
+
+  game.score = 0;
+  game.totalClearedLines = 0;
+  for (int i = 0; i < W; i++)
+  {
+    for (int j = 0; j < H; j++)
+    {
+      game.blockGrid[j][i] = 0;
+    }
+  }
+
+
   // Give em a count-down.
+  tft.setTextSize(4);
   for (int count = 5; count > 0; count--)
   {
     tft.setTextColor(WHITE);
