@@ -154,6 +154,7 @@ void loop() {
 void initStandby() {
   game.state = STANDBY;
   tft.begin();
+  tft.setTextSize(1);
   tft.clearScreen();
   tft.setTextColor(WHITE);
   tft.setCursor(10, 64);
